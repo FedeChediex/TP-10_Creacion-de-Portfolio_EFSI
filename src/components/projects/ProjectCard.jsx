@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const ProjectCard = ({ project }) => {
-	console.log(project.image);
+	
 	const cardContent = (
 		<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
 			<div>
@@ -36,7 +36,7 @@ const ProjectCard = ({ project }) => {
 			{project.id === 8 ? (
 				cardContent
 			) : (
-				<Link to="/projects/single-project" state={project} aria-label="Single Project">
+				<Link to="/projects/details" state={project} aria-label="Single Project">
 					{cardContent}
 				</Link>
 			)}

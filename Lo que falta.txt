@@ -1,5 +1,5 @@
 
 Modificar About                                    Mañana
-Utilizar Axios para los proyectos                  HOY
-Modificar Contacto Hay que achicar el formulario   HOY
+Utilizar Axios para los proyectos                  HOY - Listo
+Modificar Contacto Hay que achicar el formulario   HOY - Imposible
 Favoritos                                          Mañana

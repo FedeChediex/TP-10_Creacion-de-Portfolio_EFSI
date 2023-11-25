@@ -56,7 +56,6 @@ const ProjectsFilter = () => {
 		  result = searchByCategory(result)
 			
 		result[0] ? setFilteredProjects(result) : setFilteredProjects( [{
-	  
 			title: "Not Found",
 			category: "",
 			image: "https://pbs.twimg.com/media/Fef11ikWAAAn039.jpg"

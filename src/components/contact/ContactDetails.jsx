@@ -1,22 +1,5 @@
 import { FiPhone, FiMapPin, FiMail } from 'react-icons/fi';
 
-const contacts = [
-	{
-		id: 1,
-		name: 'Your Address, Your City, Your Country',
-		icon: <FiMapPin />,
-	},
-	{
-		id: 2,
-		name: 'email@domain.com',
-		icon: <FiMail />,
-	},
-	{
-		id: 3,
-		name: '555 8888 888',
-		icon: <FiPhone />,
-	},
-];
 
 const ContactDetails = () => {
 	return (
@@ -26,16 +9,33 @@ const ContactDetails = () => {
 					Contact details
 				</h2>
 				<ul className="font-general-regular">
-					{contacts.map((contact) => (
-						<li className="flex " key={contact.id}>
-							<i className="text-2xl text-gray-500 dark:text-gray-400 mr-4">
-								{contact.icon}
-							</i>
-							<span className="text-lg mb-4 text-ternary-dark dark:text-ternary-light">
-								{contact.name}
-							</span>
-						</li>
-					))}
+
+					<li className="flex " >
+						<i className="text-2xl text-gray-500 dark:text-gray-400 mr-4">
+							<FiMapPin />
+						</i>
+						<span className="text-lg mb-4 text-ternary-dark dark:text-ternary-light">
+							Ciudad de Buenos Aires, Argentina
+						</span>
+					</li>
+
+					<li className="flex " >
+						<i className="text-2xl text-gray-500 dark:text-gray-400 mr-4">
+							<FiMail />
+						</i>
+						<span className="text-lg mb-4 text-ternary-dark dark:text-ternary-light">
+							chfedev@gmail.com
+						</span>
+					</li>
+
+					<li className="flex " >
+						<i className="text-2xl text-gray-500 dark:text-gray-400 mr-4">
+							<FiPhone />
+						</i>
+						<span className="text-lg mb-4 text-ternary-dark dark:text-ternary-light">
+							+54 11 68684881
+						</span>
+					</li>
 				</ul>
 			</div>
 		</div>

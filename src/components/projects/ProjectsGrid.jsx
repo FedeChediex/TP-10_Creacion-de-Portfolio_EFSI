@@ -10,7 +10,7 @@ const ProjectsGrid = () => {
 	} = useContext(ProjectsContext);
 
 
-	console.log(filteredProjects);
+	
 	return (
 		<section className="py-5 sm:py-10 mt-5 sm:mt-10">
 			<div className="text-center">

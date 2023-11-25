@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react';
-import { projectsData } from '../data/projects.js';
+
 import { useEffect } from 'react';
 import axios from 'axios';
 
@@ -10,7 +10,7 @@ export const ProjectsContext = createContext();
 
 // Create the projects context provider
 export const ProjectsProvider = (props) => {
-	const [projects, setProjects] = useState(projectsData);
+	const [projects, setProjects] = useState([{}]);
 	const [searchProject, setSearchProject] = useState('');
 	const [selectProject, setSelectProject] = useState('');
 	const [filteredProjects, setFilteredProjects] = useState([{}]);
