@@ -1,32 +1,59 @@
-import logo from './logo.svg'
+import { AnimatePresence } from 'framer-motion';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+import AppFooter from './components/shared/AppFooter';
+import AppHeader from './components/shared/AppHeader';
+import './css/App.css';
+import UseScrollToTop from './hooks/useScrollToTop';
+import  useThemeSwitcher  from './hooks/useThemeSwitcher';
 
-import Home from "./Pantallas/Home"
-import Creations from "./Pantallas/Creations"
-import Info from "./Pantallas/Info"
-import Favoritos from "./Pantallas/Favorites"
-import Layout from './Pantallas/Layout'
-import { BrowserRouter, Routes, Route,Link  } from "react-router-dom"
+
+const About = lazy(() => import('./pages/AboutMe'));
+const Contact = lazy(() => import('./pages/Contact.jsx'));
+const Home = lazy(() => import('./pages/Home'));
+const Projects = lazy(() => import('./pages/Projects'));
+const ProjectSingle = lazy(() => import('./pages/ProjectSingle.jsx'));
 
 
 function App() {
-  return (
-    <BrowserRouter initialRoute="/home">
-      
-      <Routes>
-        <Route path="/" element={<Layout/>}>
-        <Route path="/home" element={<Home/>}/>
-        <Route path="/creations" element={<Creations/>}/>
-        <Route path="/info" element={<Info/>}/>
-        <Route path="/favs" element={<Favoritos/>}/>
-        </Route>
-      </Routes>
-      
-    </BrowserRouter>
-  )
+	return (
+		<AnimatePresence>
+			<div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
+				<Router>
+					<ScrollToTop />
+						<Routes>
+							<Route path="/" element={<Layout />}>
+							<Route path="/" element={<Home />} />
+							<Route path="projects" element={<Projects />} />
+							<Route
+								path="projects/single-project"
+								element={<ProjectSingle />}
+							/>
+							<Route path="about" element={<About />} />
+							<Route path="contact" element={<Contact />} />
+							</Route>
+						</Routes>					
+				</Router>
+				<UseScrollToTop />
+			</div>
+		</AnimatePresence>
+	);
 }
 
-
-
-
-
+function Layout() {
+	useThemeSwitcher();
+	return (
+		<>
+			<AppHeader />
+			<Suspense fallback={"Cargando..."}>
+			
+			<Outlet/>
+			
+			</Suspense>
+			<AppFooter />
+		</>
+	);
+}
 export default App;
+
