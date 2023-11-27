@@ -11,8 +11,6 @@ export const ProjectsContext = createContext();
 // Create the projects context provider
 export const ProjectsProvider = (props) => {
 	const [projects, setProjects] = useState([{}]);
-	const [searchProject, setSearchProject] = useState('');
-	const [selectProject, setSelectProject] = useState('');
 	const [filteredProjects, setFilteredProjects] = useState([{}]);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -43,10 +41,6 @@ export const ProjectsProvider = (props) => {
 			value={{
 				projects,
 				setProjects,
-				searchProject,
-				setSearchProject,
-				selectProject,
-				setSelectProject,
 				filteredProjects,
 				setFilteredProjects,
 			}}

@@ -7,18 +7,22 @@ import AppHeader from './components/shared/AppHeader';
 import './css/App.css';
 import UseScrollToTop from './hooks/useScrollToTop';
 import  useThemeSwitcher  from './hooks/useThemeSwitcher';
+import { FavoritesProvider } from './context/FavoritesContext.jsx';
+
 
 
 const About = lazy(() => import('./pages/AboutMe'));
-const Contact = lazy(() => import('./pages/Contact.jsx'));
+
 const Home = lazy(() => import('./pages/Home'));
 const Projects = lazy(() => import('./pages/Projects'));
 const ProjectSingle = lazy(() => import('./pages/ProjectDetails.jsx'));
+const Favorites = lazy(() => import('./pages/Favorites'));
 
 
 function App() {
 	return (
 		<AnimatePresence>
+			<FavoritesProvider>
 			<div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
 				<Router>
 					<ScrollToTop />
@@ -26,17 +30,19 @@ function App() {
 							<Route path="/" element={<Layout />}>
 							<Route path="/" element={<Home />} />
 							<Route path="projects" element={<Projects />} />
+							
 							<Route
-								path="projects/details"
+								path="/projects/details"
 								element={<ProjectSingle />}
 							/>
 							<Route path="about" element={<About />} />
-							<Route path="contact" element={<Contact />} />
+							<Route path="favorites" element={<Favorites />} />
 							</Route>
 						</Routes>					
 				</Router>
 				<UseScrollToTop />
 			</div>
+			</FavoritesProvider>
 		</AnimatePresence>
 	);
 }

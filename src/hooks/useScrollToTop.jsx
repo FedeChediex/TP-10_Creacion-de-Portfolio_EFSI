@@ -15,9 +15,9 @@ const useScrollToTop = () => {
 	});
 
 	const scrollToTop = () => {
-		if (!showScroll && window.pageYOffset > 400) {
+		if (!showScroll && window.pageYOffset > 250) {
 			setShowScroll(true);
-		} else if (showScroll && window.pageYOffset <= 400) {
+		} else if (showScroll && window.pageYOffset <= 250) {
 			setShowScroll(false);
 		}
 	};

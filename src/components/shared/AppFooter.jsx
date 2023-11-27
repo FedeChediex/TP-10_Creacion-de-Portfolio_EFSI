@@ -1,8 +1,8 @@
 
 import AppFooterCopyright from './AppFooterCopyright';
-import  SocialLinks  from '../../data/SocialNetwork';
-import ContactForm  from '../contact/ContactForm';
-import ContactDetails from '../contact/ContactDetails';	
+import SocialLinks from '../../data/SocialNetwork';
+import ContactForm from '../contact/ContactForm';
+import ContactDetails from '../contact/ContactDetails';
 
 
 const AppFooter = () => {
@@ -28,9 +28,10 @@ const AppFooter = () => {
 							</a>
 						))}
 					</ul>
+					<ContactForm />
+					<ContactDetails />
 				</div>
-				<ContactForm />
-				<ContactDetails />
+
 				<AppFooterCopyright />
 			</div>
 		</div>

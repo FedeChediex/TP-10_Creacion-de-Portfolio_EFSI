@@ -47,7 +47,7 @@ const AppBanner = () => {
 					}}
 					className="flex justify-center sm:block"
 				>
-					<a
+					<div
 						//Modificar y poner mi cv
 						//download=""
 						
@@ -58,7 +58,7 @@ const AppBanner = () => {
 						<span className="text-sm sm:text-lg font-general-medium duration-100">
 							Download CV
 						</span>
-					</a>
+					</div>
 				</motion.div>
 			</div>
 			<motion.div

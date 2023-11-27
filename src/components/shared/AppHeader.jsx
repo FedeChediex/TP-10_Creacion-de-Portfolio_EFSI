@@ -1,12 +1,21 @@
-import { useState} from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import Badge from '@material-ui/core/Badge';
+import { FavoritesContext } from '../../context/FavoritesContext';
 
 
 const AppHeader = () => {
+	//No se actualiza la badge
 	const [showMenu, setShowMenu] = useState(false);
+	const {favoritesProjects, } = useContext(FavoritesContext);
 
+	
+
+	useEffect(() => {
+		console.log(favoritesProjects.length)
+	})
 
 	function toggleMenu() {
 		setShowMenu(!showMenu);
@@ -64,6 +73,12 @@ const AppHeader = () => {
 					}
 				>
 					<Link
+						to="/"
+						className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+						aria-label="Projects"
+					> Home </Link>
+
+					<Link
 						to="/projects"
 						className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
 						aria-label="Projects"
@@ -74,12 +89,14 @@ const AppHeader = () => {
 						className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
 						aria-label="About Me"
 					> About Me </Link>
-			
+
+					<Badge badgeContent={favoritesProjects.length} overlap="rectangular" color="primary">
 					<Link
-						to="/contact"
+						to="/favorites"
 						className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2 border-t-2 pt-3 sm:pt-2 sm:border-t-0 border-primary-light dark:border-secondary-dark"
 						aria-label="Contact"
-					> Contact </Link>
+					> Favorites </Link>
+					</Badge>
 				</div>
 
 				{/* Header links large screen */}
@@ -88,6 +105,12 @@ const AppHeader = () => {
 					: 'font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none'
 				}>
 					<Link
+						to="/"
+						className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
+						aria-label="Projects"
+					> Home </Link>
+
+					<Link
 						to="/projects"
 						className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
 						aria-label="Projects"
@@ -99,11 +122,13 @@ const AppHeader = () => {
 						aria-label="About Me"
 					> About Me </Link>
 
+					<Badge badgeContent={favoritesProjects.length} overlap="rectangular" color="primary">
 					<Link
-						to="/contact"
+						to="/favorites"
 						className="block text-left text-lg text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light  sm:mx-4 mb-2 sm:py-2"
-						aria-label="Contact"
-					> Contact </Link>
+						aria-label="Contact">Favorites
+					</Link>
+					</Badge>
 
 				</div>
 			</div>

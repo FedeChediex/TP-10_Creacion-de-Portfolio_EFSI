@@ -1,8 +1,19 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import { FiHeart } from 'react-icons/fi';
+import { useContext } from 'react';
+import { FavoritesContext } from '../../context/FavoritesContext';
 
 const ProjectCard = ({ project }) => {
-	
+	const {
+		handleFav
+	} = useContext(FavoritesContext);
+
+
+
+
+
 	const cardContent = (
 		<div className="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark">
 			<div>
@@ -33,15 +44,28 @@ const ProjectCard = ({ project }) => {
 				delay: 0.15,
 			}}
 		>
-			{project.id === 8 ? (
+			{project.title === "Not Found" ? (
+
 				cardContent
+
 			) : (
-				<Link to="/projects/details" state={project} aria-label="Single Project">
-					{cardContent}
-				</Link>
+
+				<div className="project-card">
+					
+					<Link to="/projects/details" state={project} aria-label="Single Project">
+						{cardContent}
+					</Link>
+					<div className="fav-button">
+						<Button onClick={() => handleFav(project)}>
+							<FiHeart className="text-xl sm:text-2xl md:text-3xl text-white" />
+						</Button>
+					</div>
+				</div>
 			)}
 		</motion.div>
 	);
 };
 
 export default ProjectCard;
+
+

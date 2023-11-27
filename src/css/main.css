@@ -6,6 +6,9 @@
 */
 
 *,
+
+
+
 ::before,
 ::after {
   box-sizing: border-box; /* 1 */
@@ -1477,4 +1480,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 1.875rem;
     line-height: 2.25rem;
   }
+}
+
+.project-card {
+  position: relative;
+}
+
+.fav-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

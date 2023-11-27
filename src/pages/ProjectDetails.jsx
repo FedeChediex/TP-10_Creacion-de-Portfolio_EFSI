@@ -3,9 +3,17 @@ import { motion } from 'framer-motion';
 import { FiClock, FiTag } from 'react-icons/fi';
 import SocialSharing from '../data/SocialNetwork';
 import { useLocation } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import { FiHeart } from 'react-icons/fi';
+import { useContext } from 'react';
+import { FavoritesContext } from '../context/FavoritesContext';
 
 
 const ProjectSingle = () => {
+	const {
+		handleFav
+	} = useContext(FavoritesContext);
+
 	const location = useLocation();
 
 	const Optionals = (paragraph) => (
@@ -31,13 +39,26 @@ const ProjectSingle = () => {
 					<p className="font-general-medium text-left text-3xl sm:text-4xl font-bold text-primary-light ">
 						{project.ProjectHeader.title}
 					</p>
-					<button className="bg-black text-white px-4 py-2 rounded hover:bg-primary-light transition duration-300 hover:underline "
-						onClick={() => {
-							window.location.href = project.url;
-						}}>
-						Ver Proyecto
-					</button>
+
+					<div className="flex items-center">
+						<Button
+							onClick={() => handleFav(project)}
+							className="mr-4" // Agrega margen a la derecha
+						>
+							<FiHeart className="text-xl sm:text-2xl md:text-3xl text-white" />
+						</Button>
+
+						<button
+							className="bg-black text-white px-4 py-2 rounded hover:bg-primary-light transition duration-300 hover:underline"
+							onClick={() => {
+								window.location.href = project.url;
+							}}
+						>
+							Ver Proyecto
+						</button>
+					</div>
 				</div>
+
 				<div className="flex">
 					<div className="flex items-center mr-10">
 						<FiClock className="text-lg text-ternary-dark dark:text-ternary-light" />

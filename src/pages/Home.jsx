@@ -4,13 +4,14 @@ import ProjectsGrid from '../components/projects/ProjectsGrid';
 import { ProjectsProvider } from '../context/ProjectsContext';
 import Button from 'react-bootstrap/Button';
 
+
 const Home = () => {
 	return (
 		<div className="container mx-auto">
-			<AppBanner/>
+			<AppBanner />
 
 			<ProjectsProvider>
-				<ProjectsGrid/>
+				<ProjectsGrid />
 			</ProjectsProvider>
 
 			<div className="mt-8 sm:mt-10 flex justify-center">
